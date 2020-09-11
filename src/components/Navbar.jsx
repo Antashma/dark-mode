@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React , { useEffect } from 'react';
 import {useDarkMode} from '../hooks/useDarkMode'
-import { useEffect } from 'react';
 
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useDarkMode();
+  
+  const [darkMode, setDarkMode] = useDarkMode(); //why no paaram?
   const toggleMode = e => {
     e.preventDefault();
     setDarkMode(!darkMode);
@@ -11,11 +11,11 @@ const Navbar = () => {
 
   useEffect(() => {  
     if (darkMode) {
-      console.log('dark mode on')
-      document.querySelector('.App').classList.toggle('dark-mode')
+      console.log('sg: navbar.js : dark mode is', darkMode)
+      document.querySelector('.App').classList.add('dark-mode')
     } else {
-      console.log('sg: navbar.js : dark mode off')
-      document.querySelector('.App').classList.toggle('dark-mode')
+      console.log('sg: navbar.js : dark mode is', darkMode)
+      document.querySelector('.App').classList.remove('dark-mode')
     }
   }, [darkMode])
 
